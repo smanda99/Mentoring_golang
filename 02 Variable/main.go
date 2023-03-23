@@ -22,12 +22,21 @@ func main() {
 	fmt.Println(n)
 	// friend := "supraja"
 
-	fmt.Println(Name)
-	fmt.Println(Rollno)
-	fmt.Println(Marks)
-	Greet()
-	Hello()
-	read()
+	// fmt.Println(Name)
+	// fmt.Println(Rollno)
+	// fmt.Println(Marks)
+	// Greet()
+	// Hello()
+	// read()
+
+	// &variable --> refer memory location
+	// *variable -->
+
+	// name := "bala"
+	// fmt.Println(&name)
+	// name = "supraja"
+	// fmt.Println(&name)
+
 }
 
 func Greet() {
