@@ -9,7 +9,7 @@
     - [X] If and If/else
     - [X] Switch   
 - [X] For Loop
-- [ ] Errors/Panic/Recover
+- [X] Errors/Panic/Recover
 - [X] Range
 - [X] Functions
 - [ ] Packages
