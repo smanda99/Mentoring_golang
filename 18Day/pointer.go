@@ -17,6 +17,7 @@ func main() {
 	// *num1 = *num1 * num
 
 	// Example()
+
 	// Example(num)
 	fmt.Println(num)
 

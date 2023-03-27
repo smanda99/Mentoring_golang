@@ -19,7 +19,7 @@ func main() {
 	// fmt.Println(*n1)
 	// fmt.Println(n)
 
-	Example(&n)
+	Example(n1)
 	fmt.Println(n)
 	fmt.Println(*n1)
 
