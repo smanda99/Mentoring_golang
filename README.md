@@ -12,14 +12,14 @@
 - [X] Errors/Panic/Recover
 - [X] Range
 - [X] Functions
-- [ ] Packages
+- [X] Packages
 - [X] Type Casting
-- [ ] Type Inference
+- [X] Type Inference
 - [X] Arrays
 - [X] Slices
 - [X] Maps
 - [X] Structs
-- [ ] Make
+- [X] Make
 
 ## More Basics in Go
 
