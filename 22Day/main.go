@@ -16,30 +16,13 @@ type Employee struct {
 	Project   string
 }
 
-// key ,value
-//  [python ,java,mysql,go] strco
-//  employee --> [em1,em2,em3,em4,em5....]
-// using maps
-// emp1 : {Name,id,salary,Techstack,Project}
-// emp2 : {name ,id ,salary,}
-// emp3 :
-
 func main() {
 	Employes := map[string]Employee{}
 
-	// Employes["emp1"] = Employee{Name: "supraja", ID: 1, Salary: 120000, Techstack: []string{"python", "Mysql", "Git"}, Performance: 55.9}
-	// Employes["emp2"] = Employee{Name: "supraja", ID: 1, Salary: 120000, Techstack: []string{"python", "Mysql", "Git"}, Performance: 55.9}
-
-	// fmt.Println(Employes)
-
-	// fmt.Println(Employes["emp1"].Salary)
-	// var em3 Employee
-	// var em4 Employee
-	// Employes["emp3"] = UserInput(em3)
 	var emp Employee
 
-	for i := 0; i < 5; i++ {
-		Employes["emp"+string(emp.ID)] = UserInput(emp)
+	for i := 0; i < 2; i++ {
+		Employes["emp"+strconv.Itoa(emp.ID)] = UserInput(emp)
 		emp.ID += 1
 
 	}
@@ -49,21 +32,27 @@ func main() {
 
 func UserInput(em Employee) Employee {
 	reader := bufio.NewReader(os.Stdin)
+	fmt.Println("Enter the Name: ")
 	name, err := reader.ReadString('\n')
+	fmt.Println("Enter the salary: ")
 	salValue, _ := reader.ReadString('\n')
+	fmt.Println("Enter the technologies: ")
 	techstack, err := reader.ReadSlice('\n')
+	for i, v := range strings.Split(string(techstack), " ") {
+		em.Techstack = append(em.Techstack, string(v))
+		em.Techstack[i] = strings.TrimSpace(string(v))
+	}
+
+	fmt.Println("Enter the Project: ")
 	project, err := reader.ReadString('\n')
 
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	em.Name = name
+	em.Name = strings.TrimSpace(name)
 	em.Salary, _ = strconv.ParseFloat(strings.TrimSpace(salValue), 64)
-	for _, v := range techstack {
-		em.Techstack = append(em.Techstack, string(v))
-	}
-	em.Project = project
+	em.Project = strings.TrimSpace(project)
 	return em
 
 }
@@ -73,10 +62,7 @@ func (e *Employee) UpdateSalary(sal float64) {
 	e.Salary = sal
 }
 
-// UpdateProject Method to update
-// the Project
-func (e *Employee) UpdateProject(proj string) {
-	e.Project = proj
+// UpdateProject Method to update the Project
+func (e *Employee) UpdateProject(project string) {
+	e.Project = project
 }
-
-// UpdatePerformance Method to update the Performance
