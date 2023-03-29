@@ -3,21 +3,21 @@
 
 
  Step-1 Creating struct
--> Name
--> ID
--> Salary
--> Techstack
--> Project
--> Performance
+- Name
+- ID
+- Salary
+- Techstack
+- Project
+- Performance
 
 Step-2 
 
--> Creating Method UpdateSalary()
--> Creating Method UpdateProject()
--> Creating Method UpdatePerformance()
+- Creating Method UpdateSalary()
+- Creating Method UpdateProject()
+- Creating Method UpdatePerformance()
 
 
 Step-3 
 
--> Buffio --> student
+- Buffio --> student
 
