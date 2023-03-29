@@ -34,7 +34,7 @@
 
 ## Web Frameworks
 
-- [ ]  Gorilla
+- [ ]  Gorilla Mux
 - [ ]  API Clients
 
 ## Testing Go Code
