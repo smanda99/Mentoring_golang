@@ -1,8 +1,8 @@
- Aim:  sturct emplyee , slice ,employeee 10 , update salary,update project,update performance... , employee --> tech stack {}
- Buffio --> package to input values
+ Aim:  Create a map which stores employees details and use bufio package to take the userinput and create Methods which Updates the salary and Project.
 
- example : Employes["emp1"] = Employee{Name: "supraja", ID: 1, Salary: 120000, Techstack: []string{"python", "Mysql", "Git"}, Performance: 55.9}
-Employes["emp2"] = Employee{Name: "supraja", ID: 1, Salary: 120000, Techstack: []string{"python", "Mysql", "Git"}, Performance: 55.9}
+ example :
+ - Employes["emp1"] = Employee{Name: "supraja", ID: 1, Salary: 120000, Techstack: []string{"python", "Mysql", "Git"}}
+ - Employes["emp2"] = Employee{Name: "supraja", ID: 1, Salary: 120000, Techstack: []string{"python", "Mysql", "Git"}}
 
 
 
@@ -12,19 +12,19 @@ Employes["emp2"] = Employee{Name: "supraja", ID: 1, Salary: 120000, Techstack: [
 - Salary
 - Techstack
 - Project
-- Performance
+
 
 Step-2 
 
 - Creating Method UpdateSalary()
 - Creating Method UpdateProject()
-- Creating Method UpdatePerformance()
+
 
 
 Step-3 
 
 - Buffio --> student
--
+
 
 
 
