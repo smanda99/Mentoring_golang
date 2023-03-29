@@ -23,7 +23,7 @@ Step-2
 
 Step-3 
 
-- Buffio --> student
+- Buffio --> UserInput()
 
 
 
