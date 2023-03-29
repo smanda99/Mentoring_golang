@@ -4,15 +4,16 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
+	"strings"
 )
 
 type Employee struct {
-	Name        string
-	ID          int
-	Salary      float64
-	Techstack   []string
-	Project     string
-	Performance float64
+	Name      string
+	ID        int
+	Salary    float64
+	Techstack []string
+	Project   string
 }
 
 // key ,value
@@ -32,29 +33,37 @@ func main() {
 	// fmt.Println(Employes)
 
 	// fmt.Println(Employes["emp1"].Salary)
-	var em3 Employee
-	var em4 Employee
-	Employes["emp3"] = UserInput(em3)
+	// var em3 Employee
+	// var em4 Employee
+	// Employes["emp3"] = UserInput(em3)
+	var emp Employee
 
+	for i := 0; i < 5; i++ {
+		Employes["emp"+string(emp.ID)] = UserInput(emp)
+		emp.ID += 1
+
+	}
 	fmt.Println(Employes)
-
-	fmt.Println(em4)
 
 }
 
 func UserInput(em Employee) Employee {
 	reader := bufio.NewReader(os.Stdin)
-	Name, err := reader.ReadString('\n')
-	// ID, err := reader.ReadString('\n')
-	// Salary, err := reader.ReadString('\n')
-	// Techstack, err := reader.ReadSlice('\n')
-	// Project, err := reader.ReadString('\n')
-	// // Performance
+	name, err := reader.ReadString('\n')
+	salValue, _ := reader.ReadString('\n')
+	techstack, err := reader.ReadSlice('\n')
+	project, err := reader.ReadString('\n')
+
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	em.Name = Name
+	em.Name = name
+	em.Salary, _ = strconv.ParseFloat(strings.TrimSpace(salValue), 64)
+	for _, v := range techstack {
+		em.Techstack = append(em.Techstack, string(v))
+	}
+	em.Project = project
 	return em
 
 }
@@ -71,6 +80,3 @@ func (e *Employee) UpdateProject(proj string) {
 }
 
 // UpdatePerformance Method to update the Performance
-func (e *Employee) UpdatePerformance(per float64) {
-	e.Performance = per
-}
