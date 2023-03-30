@@ -26,7 +26,7 @@ func main() {
 	fmt.Println(Array)
 
 	Array["supraja"] = 1290
-	Array["ram"] = 1289
+	Array["vinay"] = 1289
 	fmt.Println(Array)
 
 }
