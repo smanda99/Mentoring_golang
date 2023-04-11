@@ -18,11 +18,19 @@ type Employee struct {
 
 func main() {
 	Employes := map[string]Employee{}
-
+	// emp =0
 	var emp Employee
 
+	// emp {name "" i 0 sla0 tec [] project ""}
+
+	// map emp1 = {}
+	// emp2 ={}
+	// emp3 = {}
+	// string(1)
+
 	for i := 0; i < 2; i++ {
-		Employes["emp"+strconv.Itoa(emp.ID)] = UserInput(emp)
+		name := "emp" + strconv.Itoa(emp.ID)
+		Employes[name] = UserInput(emp)
 		emp.ID += 1
 
 	}
@@ -31,13 +39,18 @@ func main() {
 }
 
 func UserInput(em Employee) Employee {
+
 	reader := bufio.NewReader(os.Stdin)
+
 	fmt.Println("Enter the Name: ")
-	name, err := reader.ReadString('\n')
+	name, _ := reader.ReadString('\n')
+
 	fmt.Println("Enter the salary: ")
 	salValue, _ := reader.ReadString('\n')
+
 	fmt.Println("Enter the technologies: ")
 	techstack, err := reader.ReadSlice('\n')
+
 	for i, v := range strings.Split(string(techstack), " ") {
 		em.Techstack = append(em.Techstack, string(v))
 		em.Techstack[i] = strings.TrimSpace(string(v))
@@ -53,6 +66,7 @@ func UserInput(em Employee) Employee {
 	em.Name = strings.TrimSpace(name)
 	em.Salary, _ = strconv.ParseFloat(strings.TrimSpace(salValue), 64)
 	em.Project = strings.TrimSpace(project)
+
 	return em
 
 }
