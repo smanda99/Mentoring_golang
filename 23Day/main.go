@@ -7,15 +7,19 @@ import (
 )
 
 func main() {
-	fmt.Println("Http modules")
-	url := "https://roadmap.sh/devops"
-	reader, err := http.Get(url)
-	if err != nil {
-		panic(err)
-	}
-	defer reader.Body.Close()
+	fmt.Println("Web modules")
 
-	data, err := ioutil.ReadAll(reader.Body)
+	URL := "https://github.com/Manda-supraja26/Mentoring_golang"
+
+	response, err := http.Get(URL)
+
+	if err != nil {
+		panic("error in getting the url response")
+	}
+
+	defer response.Body.Close()
+
+	data, _ := ioutil.ReadAll(response.Body)
 	fmt.Println(string(data))
 
 }
