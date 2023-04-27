@@ -4,14 +4,16 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 	"strings"
 )
 
 func main() {
 	fmt.Println("Working with routes of a server")
-	GetHomeRequest()
-	GetRequest()
-	PostDataRequest()
+	// GetHomeRequest()
+	// GetRequest()
+	// PostDataRequest()
+	PostFormRequest()
 
 }
 
@@ -58,4 +60,22 @@ func PostDataRequest() {
 	res, _ := ioutil.ReadAll(response.Body)
 	fmt.Println(string(res))
 
+}
+
+func PostFormRequest() {
+	URL := "http://localhost:1111/postform"
+
+	data := url.Values{}
+	data.Add("name", "supraja")
+	data.Add("rollno", "1290")
+	data.Add("sub", "go")
+
+	response, err := http.PostForm(URL, data)
+	if err != nil {
+		panic(err)
+
+	}
+
+	res, _ := ioutil.ReadAll(response.Body)
+	fmt.Println(string(res))
 }
