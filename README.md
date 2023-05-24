@@ -23,18 +23,18 @@
 
 ## More Basics in Go
 
-- [ ] Types and type assertions
+- [X] Types and type assertions
 - [ ] Interfaces
 - [ ] Context
 - [ ] Goroutines
 - [ ] Channels
 - [ ] Select
-- [ ] Modules
-- [ ] Working with json
+- [X] Modules
+- [X] Working with json
 
 ## Web Frameworks
 - [X] Working with web modules and URLs 
-- [ ]  Gorilla Mux
+- [X]  Gorilla Mux
 - [ ]  API Clients
 
 ## Testing Go Code
