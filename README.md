@@ -24,9 +24,9 @@
 ## More Basics in Go
 
 - [X] Types and type assertions
-- [ ] Interfaces
+- [X] Interfaces
 - [ ] Context
-- [ ] Goroutines
+- [X] Goroutines
 - [ ] Channels
 - [ ] Select
 - [X] Modules
