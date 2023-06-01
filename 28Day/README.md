@@ -1,12 +1,14 @@
-// - Get all MOvies
-// - Get one movie 
-// - Create new movie 
-// - Update movie
-// - Delete Movie
-//  CRUB
+# CRUD OPERATIONS
+
+-  Get all MOvies
+- Get one movie 
+- Create new movie 
+- Update movie
+- Delete Movie
+
 
 <!-- Fake database -->
-Movie
+## Movie
 - ID 
 - movieName
 - Rating
@@ -14,6 +16,7 @@ Movie
 - Language
 - ReleaseDate
 
+## Routes
 <!-- Routes -->
 
 - GetMovies [Method : Get] - /movies
