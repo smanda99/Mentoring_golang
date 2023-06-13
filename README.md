@@ -25,21 +25,15 @@
 
 - [X] Types and type assertions
 - [X] Interfaces
-- [ ] Context
 - [X] Goroutines
-- [ ] Channels
-- [ ] Select
+- [X] Channels
 - [X] Modules
 - [X] Working with json
 
 ## Web Frameworks
 - [X] Working with web modules and URLs 
 - [X]  Gorilla Mux
-- [ ]  API Clients
 
-## Testing Go Code
-
-## Microservices
 
 
 
