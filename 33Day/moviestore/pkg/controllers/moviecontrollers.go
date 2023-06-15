@@ -19,6 +19,7 @@ func CreateMovie(res http.ResponseWriter, req *http.Request) {
 	utils.ParseBody(req, createMovie)
 	movie := createMovie.CreateMovie()
 	r, _ := json.Marshal(movie)
+	res.Header().Set("Content-Type", "pkglication/json")
 	res.WriteHeader(http.StatusOK)
 	res.Write(r)
 }
@@ -27,23 +28,23 @@ func CreateMovie(res http.ResponseWriter, req *http.Request) {
 func GetAllMovies(res http.ResponseWriter, req *http.Request) {
 	newMovie := models.GetAllMovies()
 	r, _ := json.Marshal(newMovie)
-	res.Header().Set("Content-Type", "application/json")
+	res.Header().Set("Content-Type", "pkglication/json")
 	res.WriteHeader(http.StatusOK)
 	res.Write(r)
 }
 
 // Get Movie By ID
-func GetMovieByID(res http.ResponseWriter, req *http.Request) {
+func GetMovie(res http.ResponseWriter, req *http.Request) {
 	vars := mux.Vars(req)
 	movieId := vars["movieid"]
-	ID, err := strconv.Atoi(movieId)
+	ID, err := strconv.ParseInt(movieId, 0, 0)
 	if err != nil {
 		fmt.Println("error with parsing")
 		// log.Fatal(err)
 	}
 	moviedetails, _ := models.GetMovieByID(ID)
 	r, _ := json.Marshal(moviedetails)
-	res.Header().Set("Content-Type", "application/json")
+	res.Header().Set("Content-Type", "pkglication/json")
 	res.WriteHeader(http.StatusOK)
 	res.Write(r)
 }
@@ -52,27 +53,29 @@ func GetMovieByID(res http.ResponseWriter, req *http.Request) {
 func DeleteMovie(res http.ResponseWriter, req *http.Request) {
 	vars := mux.Vars(req)
 	movieID := vars["movieid"]
-	ID, err := strconv.Atoi(movieID)
+	ID, err := strconv.ParseInt(movieID, 0, 0)
 	if err != nil {
 		fmt.Println("error with parsing and converting ")
 	}
 	movie := models.DeleteMovie(ID)
 	r, _ := json.Marshal(movie)
-	res.Header().Set("Content-Type", "application/json")
+	res.Header().Set("Content-Type", "pkglication/json")
 	res.WriteHeader(http.StatusOK)
 	res.Write(r)
 }
 
 func UpdateMovie(res http.ResponseWriter, req *http.Request) {
+	var createMovie = &models.Movie{}
+	utils.ParseBody(req, createMovie)
 	vars := mux.Vars(req)
 	movieID := vars["movieid"]
-	ID, err := strconv.Atoi(movieID)
+	ID, err := strconv.ParseInt(movieID, 0, 0)
 	if err != nil {
 		fmt.Println("error with parsing and converting ")
 	}
 
-	createMovie := &models.Movie{}
-	utils.ParseBody(req, createMovie)
+	// var createMovie = &models.Movie{}
+	// utils.Parse(req, createMovie)
 
 	bookdetails, db := models.GetMovieByID(ID)
 
@@ -82,7 +85,7 @@ func UpdateMovie(res http.ResponseWriter, req *http.Request) {
 	if createMovie.Title != "" {
 		bookdetails.Title = createMovie.Title
 	}
-	if createMovie.Year != 0.0 {
+	if createMovie.Year != 0 {
 		bookdetails.Year = createMovie.Year
 	}
 	if createMovie.Rating != 0.0 {
@@ -90,7 +93,7 @@ func UpdateMovie(res http.ResponseWriter, req *http.Request) {
 	}
 	db.Save(&bookdetails)
 	r, _ := json.Marshal(bookdetails)
-	res.Header().Set("Content-TYpe", "application/json")
+	res.Header().Set("Content-TYpe", "pkglication/json")
 	res.WriteHeader(http.StatusOK)
 	res.Write(r)
 

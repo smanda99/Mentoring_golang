@@ -34,13 +34,13 @@ func GetAllMovies() []Movie {
 	return movie
 }
 
-func GetMovieByID(ID int) Movie {
+func GetMovieByID(ID int) (Movie, *gorm.DB) {
 	var movie Movie
 	db.Where("ID=?", ID).Find(&movie)
-	return movie
+	return movie, db
 }
 
-func DeleteMovie(ID int64) Movie {
+func DeleteMovie(ID int) Movie {
 	var movie Movie
 	db.Where("ID=?", ID).Delete(movie)
 	return movie
